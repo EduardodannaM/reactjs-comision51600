@@ -1,19 +1,21 @@
-import Footer from "./Components/Footer/Footer.jsx";
-import ItemListContainer from "./Components/ItemListContainer/ItemListContainer.jsx";
-import Navbar from "./Components/Navbar/Navbar.jsx";
-import ProductCard from "./Components/ProductCard/ProductCard.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Cart from "./Components/Cart/Cart";
+import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
+import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
+import Navbar from "./Components/Navbar/Navbar";
+
 //
 //
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
-      <ItemListContainer greeting="este es el greeting de itemlistcontainer" />
-      <ProductCard title="Producto 1" price={500} />
-      <ProductCard title="Producto 2" price={1000} />
-      <ProductCard title="Producto 3" price={2000} />
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/itemDetail" element={<ItemDetailContainer />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
